@@ -1,0 +1,25 @@
+
+<header th:replace="common/top"> </header>
+<div id="centered-table-container" style="text-align: center;">
+    <h2>My Logs</h2>
+
+    <table style="display: inline-block; text-align: left;">
+        <tr>
+            <th><b>User Name</b></th>
+            <th><b>Behavior</b></th>
+            <th><b>Date</b></th>
+        </tr>
+
+            <tbody>
+            <tr th:each="record : ${session.recordList}">
+                <td th:text="${record.getUsername()}"></td>
+                <td th:text="${record.getRecord()}"></td>
+                <td th:text="${record.getRecordDate()}"></td>
+            </tr>
+            </tbody>
+
+
+    </table>
+</div>
+<footer th:replace="common/bottom"></footer>
+

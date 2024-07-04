@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <th:block th:include="common/top :: top" />-->
+</head>
+<body>
+<header th:replace="common/top"> </header>
+<div id="Catalog">
+    <form action="/accountFor/saveAccount" method="post">
+        <h3>User Information</h3>
+
+        <table>
+            <tr>
+                <td>User ID:</td>
+                <td><input type="text" name="username" id="username" th:placeholder="${session.userInfo.loginAccount.getUsername()}"></td>
+
+            </tr>
+            <tr>
+                <td>New password:</td>
+                <td><input type="text" name="password" autofocus="autofocus"/></td>
+            </tr>
+            <tr>
+                <td>Repeat password:</td>
+                <td><input type="text" name="repeatedPassword" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div id="feedback"></div></td>
+            </tr>
+        </table>
+
+        <th:block th:include="account/includeAccountFields"></th:block>
+        <input type="submit" name="editAccount" value="Save Account Information" />
+
+    </form>
+
+
+
+
+
+
+    <!--event="listOrders-->
+    <a th:href="listOrders">My Orders</a>
+    <br>
+    <a th:href="@{/accountFor/SearchRecord}">My Record</a>
+    <script src="../js/register.js"></script>
+
+</div>
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>
